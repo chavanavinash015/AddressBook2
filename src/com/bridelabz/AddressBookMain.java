@@ -10,7 +10,7 @@ public class AddressBookMain {
     Contact contact = new Contact();
 
 
-    public Contact addContactDetails() {
+    public void addContactDetails() {
         Contact contact = new Contact();
         System.out.println("Enter First name");
         String firstName = scanner.next();
@@ -47,7 +47,7 @@ public class AddressBookMain {
         addressBook.add(contact);
         System.out.println(addressBook);
         System.out.println("created contacts ");
-        return contact;
+
 
     }
 
@@ -108,7 +108,7 @@ public class AddressBookMain {
             }
         }
     }
-        public void deleteContactDetails () {
+        public void deleteContacts () {
             System.out.println("Confirm first name to delete contact");
             String confirmName = scanner.next();
             System.out.println(confirmName);
@@ -124,7 +124,7 @@ public class AddressBookMain {
 
     }
 
-    public void addMultipleContact() {
+    public void addMultipleContacts() {
         System.out.println("Enter Number of Contacts to Add into Contact Book");
         int number = scanner.nextInt();
         for (int i = 0; i < number; i++) {
@@ -138,6 +138,15 @@ public class AddressBookMain {
         } else {
             Set<Contact> set = addressBook.stream().collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Contact::toString))));
             set.forEach(System.out::println);
+        }
+    }
+    public void searchContactDetails() {
+        System.out.println("Enter the city or state to search Contact ");
+        String input = scanner.next();
+        for (Contact person : addressBook) {
+            if (person.getCity().equals(input) || person.getState().equals(input)) {
+                System.out.println("Matches with city and state name contact is :" + person);
+            }
         }
     }
     public static void main(String[] args) {
@@ -160,10 +169,10 @@ public class AddressBookMain {
                     addressBook.editContactDetails();
                     break;
                 case 3:
-                    addressBook.deleteContactDetails();
+                    addressBook.deleteContacts();
                     break;
                 case 4:
-                    addressBook.addMultipleContact();
+                    addressBook.addMultipleContacts();
                     break;
                 case 5 :
                     addressBook.showAddressBookDetails();
