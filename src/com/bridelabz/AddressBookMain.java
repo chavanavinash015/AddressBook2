@@ -98,6 +98,32 @@ public class AddressBookMain {
         }
         System.out.println(contact);
     }
+     void deleteContactDetails() {
+        System.out.println("1.first Name \t2.last Name \t3.Address \t4.city \t5.State \t6. Zip \t7.Phone Number \t8.Email");
+        System.out.println("Enter a number to delete");
+        int num = scanner.nextInt();
+
+        if(num == 1){
+            contact.setFirstName(null);
+        } else if (num==2) {
+            contact.setLastName(null);
+        }else if (num==3) {
+            contact.setAddress(null);
+        }else if (num==4) {
+            contact.setCity(null);
+        }else if (num==5) {
+            contact.setState(null);
+        }else if (num==6) {
+            contact.setZip(0);
+        }else if (num==7) {
+            contact.setPhoneNumber(0);
+        }else if (num==8) {
+            contact.setEmail(null);
+        }else
+            System.out.println("Invalid input");
+
+        System.out.println(contact);
+    }
     public static void main(String[] args) {
 
         System.out.println("Welcome to the AddressBook Program ");
@@ -105,6 +131,7 @@ public class AddressBookMain {
 
         addressBook.addContactDetails();
         addressBook.editContactDetails();
+        addressBook.deleteContactDetails();
 
     }
 }
