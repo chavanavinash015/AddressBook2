@@ -156,6 +156,31 @@ public class AddressBookMain {
             addressBook.stream().sorted(Comparator.comparing(Contact::getFirstName)).forEach(System.out::println);
         }
     }
+    public void sortingByCity() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getCity)).forEach(System.out::println);
+        }
+    }
+
+
+    public void sortingByState() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getState)).forEach(System.out::println);
+        }
+    }
+
+
+    public void sortingByZip() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getZip)).forEach(System.out::println);
+        }
+    }
     public static void main(String[] args) {
 
         System.out.println("Welcome to the AddressBook Program ");
