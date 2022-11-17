@@ -177,6 +177,8 @@ public class AddressBookMain {
                 case 5 :
                     addressBook.showAddressBookDetails();
                     break;
+                case 6:
+                    addressBook.searchContactDetails();
                 default:
                     System.out.println("Invalid Input");
             }
