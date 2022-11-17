@@ -93,6 +93,17 @@ public class AddressBookSystem {
             addressBook.searchContactDetails();
         }
     }
+    public static void sortByPersonName() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = bookAddress.get(bookName);
+        AddressBookMain addressBook = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.sortByPersonName();
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome To AddressBook program");
         boolean condition = true;
@@ -119,6 +130,9 @@ public class AddressBookSystem {
                     showAddressBookDetails();
                 case 7:
                     searchByCityOrState();
+                case 8:
+                    sortByPersonName();
+                    break;
                 default:
                     condition = false;
                     System.out.println("Exiting the loop ");
