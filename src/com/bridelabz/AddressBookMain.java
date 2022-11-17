@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
+    private  String addressBookName;
     static ArrayList<Contact> addressBook = new ArrayList<Contact>();
     static Scanner scanner = new Scanner(System.in);
     Contact contact = new Contact();
 
-    public void addContactDetails() {
+    public String getAddressBookName() {
+        return addressBookName;
+    }
+
+    public void setAddressBookName(String addressBookName) {
+        this.addressBookName = addressBookName;
+    }
+
+    public Contact addContactDetails() {
         Contact contact = new Contact();
         System.out.println("Enter First name");
         String firstName = scanner.next();
@@ -42,7 +51,10 @@ public class AddressBookMain {
         String email = scanner.next();
         contact.setEmail(email);
 
-        System.out.println(contact);
+        addressBook.add(contact);
+        System.out.println(addressBook);
+        System.out.println("created contacts ");
+        return contact;
 
     }
 
