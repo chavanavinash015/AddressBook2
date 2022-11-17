@@ -23,7 +23,7 @@ public class AddressBookSystem {
         }
     }
 
-    public static void addAddressBookContact() {
+    public static void addContact() {
         System.out.println("Enter the AddressBook Name");
         String bookName = scanner.next();
         AddressBookSystem book = bookAddress.get(bookName);
@@ -35,7 +35,7 @@ public class AddressBookSystem {
         }
     }
 
-    public static void editAddressBookContact() {
+    public static void editContact() {
         System.out.println("Enter the AddressBook Name");
         String bookName = scanner.next();
         AddressBookSystem book = bookAddress.get(bookName);
@@ -47,7 +47,7 @@ public class AddressBookSystem {
         }
     }
 
-    public static void deleteAddressBookContact() {
+    public static void deleteContact() {
         System.out.println("Enter the AddressBook Name");
         String bookName = scanner.next();
         AddressBookSystem book = bookAddress.get(bookName);
@@ -55,11 +55,11 @@ public class AddressBookSystem {
         if (book == null) {
             System.out.println("No Book found with these name");
         } else {
-            addressBook.deleteContactDetails();
+            addressBook.deleteContacts();
         }
     }
 
-    public static void addMultipleContactsToAddressBook() {
+    public static void addMultipleContacts() {
         System.out.println("Enter the AddressBook Name");
         String bookName = scanner.next();
         AddressBookSystem book = bookAddress.get(bookName);
@@ -82,6 +82,17 @@ public class AddressBookSystem {
         }
     }
 
+    public static void searchByCityOrState() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = bookAddress.get(bookName);
+        AddressBookMain addressBook = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.searchContactDetails();
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome To AddressBook program");
         boolean condition = true;
@@ -93,19 +104,21 @@ public class AddressBookSystem {
                     addAddressBook();
                     break;
                 case 2:
-                    addAddressBookContact();
+                    addContact();
                     break;
                 case 3:
-                    editAddressBookContact();
+                    editContact();
                     break;
                 case 4:
-                    deleteAddressBookContact();
+                    deleteContact();
                     break;
                 case 5:
-                    addMultipleContactsToAddressBook();
+                    addMultipleContacts();
                     break;
                 case 6:
                     showAddressBookDetails();
+                case 7:
+                    searchByCityOrState();
                 default:
                     condition = false;
                     System.out.println("Exiting the loop ");
