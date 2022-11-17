@@ -93,6 +93,33 @@ public class AddressBookSystem {
             addressBook.searchContactDetails();
         }
     }
+    public static void differentOptions() {
+        boolean condition = true;
+        while (condition) {
+            System.out.println("\n" + "1.SortByPersonName" + "\n" + "2.SortByCity" + "\n" + "3.SortByState" + "\n" + "4.SortByZip" + "\n" + "5.Exit");
+            int option = scanner.nextInt();
+            switch (option) {
+                case 1:
+                    sortByPersonName();
+                    break;
+                case 2:
+                    sortByCity();
+                    break;
+                case 3:
+                    sortByState();
+                    break;
+                case 4:
+                    sortByZip();
+                    break;
+                case 5:
+                    condition = false;
+                    System.out.println("Back To Main menu");
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+        }
+    }
     public static void sortByPersonName() {
         System.out.println("Enter the AddressBookName ");
         String bookName = scanner.next();
@@ -102,6 +129,43 @@ public class AddressBookSystem {
             System.out.println("No book found with these name");
         } else {
             addressBook.sortByPersonName();
+        }
+    }
+    public static void sortByCity() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = bookAddress.get(bookName);
+        AddressBookMain addressBook = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.sortingByCity();
+        }
+    }
+
+
+    public static void sortByState() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = bookAddress.get(bookName);
+        AddressBookMain addressBook = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.sortingByState();
+        }
+    }
+
+
+    public static void sortByZip() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = bookAddress.get(bookName);
+        AddressBookMain addressBook = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBook.sortingByZip();
         }
     }
     public static void main(String[] args) {
@@ -131,7 +195,7 @@ public class AddressBookSystem {
                 case 7:
                     searchByCityOrState();
                 case 8:
-                    sortByPersonName();
+                    differentOptions();
                     break;
                 default:
                     condition = false;
