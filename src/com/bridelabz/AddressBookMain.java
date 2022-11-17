@@ -1,21 +1,14 @@
 package com.bridelabz;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookMain {
-    private  String addressBookName;
+
     static ArrayList<Contact> addressBook = new ArrayList<Contact>();
     static Scanner scanner = new Scanner(System.in);
     Contact contact = new Contact();
 
-    public String getAddressBookName() {
-        return addressBookName;
-    }
-
-    public void setAddressBookName(String addressBookName) {
-        this.addressBookName = addressBookName;
-    }
 
     public Contact addContactDetails() {
         Contact contact = new Contact();
@@ -139,7 +132,14 @@ public class AddressBookMain {
             System.out.println(i + 1 + " Contact added Successfully.. ");
         }
     }
-
+    public void showAddressBookDetails() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Address book is empty");
+        } else {
+            Set<Contact> set = addressBook.stream().collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Contact::toString))));
+            set.forEach(System.out::println);
+        }
+    }
     public static void main(String[] args) {
 
         System.out.println("Welcome to the AddressBook Program ");
@@ -164,6 +164,9 @@ public class AddressBookMain {
                     break;
                 case 4:
                     addressBook.addMultipleContact();
+                    break;
+                case 5 :
+                    addressBook.showAddressBookDetails();
                     break;
                 default:
                     System.out.println("Invalid Input");

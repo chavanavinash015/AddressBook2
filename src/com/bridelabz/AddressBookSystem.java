@@ -55,7 +55,7 @@ public class AddressBookSystem {
         if (book == null) {
             System.out.println("No Book found with these name");
         } else {
-            addressBook.editContactDetails();
+            addressBook.deleteContactDetails();
         }
     }
 
@@ -67,7 +67,18 @@ public class AddressBookSystem {
         if (book == null) {
             System.out.println("No Book found with these name");
         } else {
-            addressBook.editContactDetails();
+            addressBook.addContactDetails();
+        }
+    }
+    public static void showAddressBookDetails() {
+        System.out.println("Enter Address Book System Name");
+        String bookName = scanner.next();
+        AddressBookSystem address = bookAddress.get(bookName);
+        AddressBookMain addressBookSystem = new AddressBookMain();
+        if (address == null) {
+            System.out.println("No book found this name");
+        } else {
+            addressBookSystem.showAddressBookDetails();
         }
     }
 
@@ -93,6 +104,8 @@ public class AddressBookSystem {
                 case 5:
                     addMultipleContactsToAddressBook();
                     break;
+                case 6:
+                    showAddressBookDetails();
                 default:
                     condition = false;
                     System.out.println("Exiting the loop ");
